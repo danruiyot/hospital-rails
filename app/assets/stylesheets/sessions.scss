@@ -1,0 +1,35 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.login{
+	max-width: 400px;
+	margin: auto;
+	height: 100%;
+	margin-top: 10%;
+}
+.login input{
+	padding:8px;
+	display:block;
+	border:none;
+	border-bottom:1px solid #ccc;
+	width:100%;
+	border: 1px solid grey;
+	border-radius: 2px;
+}
+// .login input[type*="password"]{
+// 	padding:8px;
+// 	display:block;
+// 	border:none;
+// 	border-bottom:1px solid #ccc;
+// 	width:100%;
+// 	border: 1px solid grey;
+// 	border-radius: 2px;
+// }
+.login input[type*="submit"]{
+	padding:8px;
+	display:block;
+	border-bottom:1px solid #ccc;
+	width:100%;
+	border-radius: 2px;
+	border: none;
+}

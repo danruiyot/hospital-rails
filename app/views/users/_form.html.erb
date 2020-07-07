@@ -1,0 +1,62 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.number_field :phone , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DOB %>
+    <%= form.date_select :DOB , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, options_for_select([['Select Gender', 0] , ['Male', 'male'] ,['Female', 'female']] , class:'w3-select w3-border'), { :class => 'w3-select w3-border' }%>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_pic %>
+    <%= form.file_field :profile_pic , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password , class:'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation , class:'w3-input w3-border' %>
+  </div>
+  <div class="field">
+    <%= form.label :role %>
+    <%= form.select :role, options_for_select([['Select one', 0] , ['Admin', 1] ,['Doctor', 2],['Patient', 3]] , class:'w3-select w3-border') %>
+
+  </div>
+  <div class="actions">
+    <%= form.submit class:'w3-btn w3-blue w3-round' %>
+  </div>
+<% end %>

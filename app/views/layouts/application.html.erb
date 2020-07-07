@@ -2,29 +2,44 @@
 <html>
   <head>
     <title>Hospital</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
     <div class="w3-bar w3-border w3-light-grey">
-  <a href="#" class="w3-bar-item w3-right w3-button w3-border-left">Home</a>
+        <% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log Out", logout_path , class:"w3-bar-item w3-right w3-button w3-border-left" %>
+<% else %>
+  <%= link_to "Sign Up", signup_path , class:"w3-bar-item w3-right w3-button w3-border-left"  %>
+  <%= link_to "Log In", login_path  , class:"w3-bar-item w3-right w3-button w3-border-left" %>
+<% end %>
+  <a href="/" class="w3-bar-item w3-right w3-button w3-border-left">Home</a>
 </div>
-
+<% if current_user %>
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:320px;" id="mySidebar">
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom w3-large"><img src="../images/w3schools.png" style="width:60%;"></a>
   <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
   class="w3-bar-item w3-button w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
   
-  <a href="#" class="<%= 'w3-blue' if current_page?(admissions_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>Users</a>
+  <a href="/users" class="<%= 'w3-blue' if current_page?(users_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-users w3-margin-right"></i>Users</a>
   <a href="/admissions" class="<%= 'w3-blue' if current_page?(admissions_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>Admissions</a>
   <a href="/diagnoses" class="<%= 'w3-blue' if current_page?(diagnoses_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-hourglass-end w3-margin-right"></i>Diagnosis</a>
   <a href="/notices" class="<%= 'w3-blue' if current_page?(notices_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-bell w3-margin-right"></i>Notices</a>
-  <a href="/wards" class="<%= 'w3-blue' if current_page?(wards_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-room w3-margin-right"></i>Ward</a>
+  <a href="/wards" class="<%= 'w3-blue' if current_page?(wards_path)%> w3-bar-item w3-hover-blue w3-border-bottom w3-button"><i class="fa fa-hospital-o w3-margin-right"></i>Ward</a>
+
+
+
 </nav>
 
 <!-- Overlay effect when opening the side navigation on small screens -->
@@ -39,6 +54,14 @@
         <%= yield %>
       </div>
    </div>
+<% else %>
+   <div class="w3-container w3-margin-top">
+      <div class="">
+        <%= yield %>
+      </div>
+   </div>
+<% end %>
+
      
 </div>
 

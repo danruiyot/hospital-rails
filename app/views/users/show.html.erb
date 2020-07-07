@@ -1,0 +1,62 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+
+
+<table class="w3-table-all">
+	<tr>
+		<th>Email:</th>
+		<td><%= @user.email %></td>
+	</tr>
+  <tr>
+  	<th>name:</th>
+  	<td><%= @user.name %></td>
+  </tr>
+  <tr>
+  	<th>phone:</th>
+  	<td><%= @user.phone %></td>
+  </tr>
+  <tr>
+  	<th>gender:</th>
+  	<td><%= @user.gender %></td>
+  </tr>
+  <tr>
+  	<th>DOB:</th>
+  	<td><%= @user.DOB %></td>
+  </tr>
+  <tr>
+  	<th>profile_pic</th>
+  	<td><%= @user.profile_pic %></td>
+  </tr>
+  <tr>
+  	<th>role:</th>
+  	<td>
+  	<% if @user.role == 1 %>
+  	<%= "Admin" %>
+  	<% elsif @user.role == 2  %>
+  	<%= "Doctor" %>
+  	<% elsif @user.role == 3  %>
+  	<%= "Patient" %>
+  	<% else  %>
+  	<%= "Unknown user" %>
+  		
+	<% end %>
+  	</td>
+  </tr>
+
+  
+
+
+
+
+
+</table>
+
+ <div class="w3-center w3-padding">
+<div class="w3-bar">
+<%= link_to 'Edit', edit_user_path(@user), class: 'w3-btn w3-teal w3-round'  %>
+<%= link_to 'Back', users_path, class: 'w3-btn w3-black w3-round' %>
+</div>
+</div>
