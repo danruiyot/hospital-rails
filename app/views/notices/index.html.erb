@@ -1,0 +1,42 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green w3-border">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+
+<h1>Notices</h1>
+
+<div class="w3-margin">
+  <%= link_to 'New Notice', new_notice_path , class:'w3-btn w3-green w3-round' %>
+</div>
+<table class="w3-table-all">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Message</th>
+      <th>Expiry</th>
+      <th>Start</th>
+      <th>Target</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notices.each do |notice| %>
+      <tr>
+        <td><%= notice.title %></td>
+        <td><%= notice.message %></td>
+        <td><%= notice.expiry %></td>
+        <td><%= notice.start %></td>
+        <td><%= notice.target %></td>
+        <td><%= link_to 'Show', notice, class:'w3-round w3-blue w3-btn' %></td>
+        <td><%= link_to 'Edit', edit_notice_path(notice), class:'w3-round w3-lime w3-btn'%></td>
+        <td><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' }, class:'w3-round w3-red w3-btn'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

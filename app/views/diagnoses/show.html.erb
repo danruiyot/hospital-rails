@@ -1,0 +1,48 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green w3-border">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+<table class="w3-table-all">
+<tr>
+  <th>Title:</th>
+  <td><%= @diagnosis.title %></td>
+</tr>
+
+<tr>
+  <th>Notes:</th>
+  <td><%= @diagnosis.notes %></td>
+</tr>
+
+<tr>
+  <th>Prescriptions:</th>
+  <td><%= @diagnosis.prescriptions %></td>
+</tr>
+
+<tr>
+  <th>Patient:</th>
+  <td><%= @diagnosis.patient_id %></td>
+</tr>
+
+<tr>
+  <th>Add by:</th>
+  <td><%= @diagnosis.add_by %></td>
+</tr>
+
+<tr>
+  <th>Updated by:</th>
+  <td><%= @diagnosis.updated_by %></td>
+</tr>
+
+<tr>
+  <th>Is admited:</th>
+  <td><%= @diagnosis.is_admited %></td>
+</table>
+<div class="w3-center">
+<div class="w3-bar">
+
+<%= link_to 'Edit', edit_diagnosis_path(@diagnosis), class:'w3-btn w3-lime w3-round' %> 
+<%= link_to 'Back', diagnoses_path, class:'w3-btn w3-black w3-round' %>
+</div>
+</div>
+

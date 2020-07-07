@@ -1,0 +1,45 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green w3-border">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+<h1>Diagnoses</h1>
+
+<div class="w3-margin"> 
+<%= link_to 'New Diagnosis', new_diagnosis_path, class:'w3-btn w3-green w3-round'  %>
+  
+</div>
+<table class="w3-table-all">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Prescriptions</th>
+      <th>Patient</th>
+      <th>Add by</th>
+      <th>Updated by</th>
+      <th>Is admited</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diagnoses.each do |diagnosis| %>
+      <tr>
+        <td><%= diagnosis.title %></td>
+        <td><%= diagnosis.notes %></td>
+        <td><%= diagnosis.prescriptions %></td>
+        <td><%= diagnosis.patient_id %></td>
+        <td><%= diagnosis.add_by %></td>
+        <td><%= diagnosis.updated_by %></td>
+        <td><%= diagnosis.is_admited %></td>
+        <td><%= link_to 'Show', diagnosis, class:'w3-btn w3-blue w3-round' %></td>
+        <td><%= link_to 'Edit', edit_diagnosis_path(diagnosis), class:'w3-btn w3-lime w3-round' %></td>
+        <td><%= link_to 'Destroy', diagnosis, class:'w3-btn w3-red w3-round', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

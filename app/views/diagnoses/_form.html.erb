@@ -1,0 +1,52 @@
+<%= form_with(model: diagnosis, local: true) do |form| %>
+  <% if diagnosis.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diagnosis.errors.count, "error") %> prohibited this diagnosis from being saved:</h2>
+
+      <ul>
+        <% diagnosis.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prescriptions %>
+    <%= form.text_area :prescriptions, class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.number_field :patient_id , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :add_by %>
+    <%= form.number_field :add_by , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by %>
+    <%= form.text_field :updated_by , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_admited %>
+    <%= form.number_field :is_admited , class: 'w3-input w3-border' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'w3-btn w3-blue w3-round'%>
+  </div>
+<% end %>

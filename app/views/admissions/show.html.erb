@@ -1,0 +1,41 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green w3-border">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+<table class="w3-table-all" >
+<tr>
+  <th>Patient:</th>
+  <td>
+  <%= @admission.patient_id %>
+</td>
+</tr>
+
+<tr>
+  <th>Doctor:</th>
+  <td>
+  <%= @admission.doctor_id %>
+</td>
+</tr>
+
+<tr>
+  <th>Ward:</th>
+  <td>
+  <%= @admission.ward_id %>
+</td>
+</tr>
+
+<tr>
+  <th>Date released:</th>
+  <td>
+  <%= @admission.date_released %>
+</td>
+</tr>
+</table>
+
+ <div class="w3-center">
+<div class="w3-bar">
+<%= link_to 'Edit', edit_admission_path(@admission) , class: 'w3-btn w3-lime w3-round' %> 
+<%= link_to 'Back', admissions_path , class: 'w3-btn w3-black w3-round' %>
+</div>
+</div>

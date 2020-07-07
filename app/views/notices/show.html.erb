@@ -1,0 +1,37 @@
+<% if notice %>
+  <div class="w3-panel w3-pale-green w3-border">
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+<table class="w3-table-all">
+<tr>
+  <th>Title:</th>
+ <td> <%= @notice.title %></td>
+</tr>
+
+<tr>
+  <th>Message:</th>
+ <td> <%= @notice.message %></td>
+</tr>
+
+<tr>
+  <th>Expiry:</th>
+  <td><%= @notice.expiry %></td>
+</tr>
+
+<tr>
+  <th>Start:</th>
+ <td> <%= @notice.start %></td>
+</tr>
+
+<tr>
+  <th>Target:</th>
+  <td><%= @notice.target %></td>
+</tr>
+</table>
+<div class="w3-center">
+<div class="w3-bar">
+<%= link_to 'Edit', edit_notice_path(@notice), class:'w3-btn w3-blue w3-round' %>
+<%= link_to 'Back', notices_path, class:'w3-btn w3-black w3-round' %>
+</div>
+</div>

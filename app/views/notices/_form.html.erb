@@ -1,0 +1,42 @@
+<%= form_with(model: notice, local: true) do |form| %>
+  <% if notice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
+
+      <ul>
+        <% notice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'w3-input w3-border'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_area :message, class: 'w3-input w3-border'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiry %>
+    <%= form.date_select :expiry, class: 'w3-input w3-border'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.date_select :start, class: 'w3-input w3-border'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :target %>
+    <%= form.number_field :target, class: 'w3-input w3-border'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'w3-btn w3-blue w3-round'%>
+  </div>
+<% end %>
